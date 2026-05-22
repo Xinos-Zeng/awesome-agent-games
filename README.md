@@ -44,9 +44,6 @@ mkdir -p ~/.claude/skills
 cp -r tabletop-skills/brenner-apartment ~/.claude/skills/
 ```
 
-> 💡 **只放你想玩的那一个子目录**，别把整个仓库塞进去 —— 否则所有剧本会一次性注册，触发关键词容易打架。
-> 💡 **Copy only the scenario you want**, not the whole repo — otherwise every scenario registers at once and their trigger keywords start colliding.
-
 ### 3. 在 Agent 里召唤它 / Summon it from your agent
 
 重启 Agent 会话，对它说剧本名就行。比如：
