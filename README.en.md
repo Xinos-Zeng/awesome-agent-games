@@ -28,6 +28,56 @@ Development guide: [`galgame/tutorial.md`](galgame/tutorial.md).
 
 ---
 
+## Showcase
+
+These snippets show what play looks like without revealing key clues, truths, route conditions, or endings.
+
+### Call of Cthulhu
+
+```text
+Player: Let's play Brenner Apartment.
+
+Keeper:
+Brenner Apartment
+Boston rain, an old brick building, and rooms that refuse to stay quiet.
+
+Boston, 1923.
+
+Rain runs down the red-brick walls, and the streetlights break into dull yellow fragments across the puddles. You stand before Brenner Apartment with the landlord's key in your hand.
+
+Rumor says the last three tenants all left this place broken. Some blame gas leaks. Some blame loneliness, poverty, or the shadows left behind by the war.
+
+But when you look up at the dark second-floor window, you suddenly feel that something is looking back.
+
+Welcome, investigator. Welcome to Brenner Apartment.
+
+First, create your character.
+
+Choose your occupation:
+[1] Private Investigator
+[2] Journalist
+[3] Scholar
+
+Choose 2 items to carry:
+[A] Lighter  [B] Notebook  [C] Pocket Watch
+[D] First Aid Kit  [E] Flask  [F] Revolver
+```
+
+### Galgame
+
+```text
+Player: Let's play Shiomi Academy Seven Days.
+
+Narrator: A sea breeze drifts up from the end of the slope, carrying salt and the smell of summer. Far away, an old lighthouse stands silently by the cliff, its clock stopped at a time you cannot quite read.
+
+Today is your first day transferring into Shiomi Academy.
+
+What is the protagonist's name?
+(Default: Hasegawa Ren)
+```
+
+---
+
 ## How to Use
 
 ### 1. Clone the repo
