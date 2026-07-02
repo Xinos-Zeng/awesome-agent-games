@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "COC RPG Game State",
+  "type": "object",
+  "required": ["version", "phase", "scene", "player", "flags", "clues"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "存档版本号",
+      "example": "1.0"
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["character_creation", "act1", "act2", "act3", "ending"],
+      "description": "当前游戏阶段"
+    },
+    "scene": {
+      "type": "string",
+      "description": "当前场景ID，对应scenes.md中的场景",
+      "enum": [
+        "scene_street",
+        "scene_lobby",
+        "scene_room207",
+        "scene_police",
+        "scene_library",
+        "scene_basement_door",
+        "scene_basement",
+        "scene_altar",
+        "scene_hidden_room",
+        "scene_final_confrontation",
+        "ending_a",
+        "ending_b",
+        "ending_c"
+      ]
+    },
+    "player": {
+      "type": "object",
+      "required": ["name", "occupation", "hp", "hp_max", "sanity", "sanity_max", "skills", "inventory"],
+      "properties": {
+        "name": { "type": "string" },
+        "occupation": {
+          "type": "string",
+          "enum": ["私家侦探", "记者", "学者"],
+          "description": "职业影响部分初始技能值"
+        },
+        "hp": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "hp_max": { "type": "integer", "default": 10 },
+        "sanity": { "type": "integer", "minimum": 0, "maximum": 99 },
+        "sanity_max": { "type": "integer", "default": 60 },
+        "skills": {
+          "type": "object",
+          "properties": {
+            "调查":     { "type": "integer", "minimum": 0, "maximum": 99 },
+            "图书馆利用": { "type": "integer", "minimum": 0, "maximum": 99 },
+            "说服":     { "type": "integer", "minimum": 0, "maximum": 99 },
+            "潜行":     { "type": "integer", "minimum": 0, "maximum": 99 },
+            "近战":     { "type": "integer", "minimum": 0, "maximum": 99 },
+            "射击":     { "type": "integer", "minimum": 0, "maximum": 99 },
+            "急救":     { "type": "integer", "minimum": 0, "maximum": 99 },
+            "神秘学":   { "type": "integer", "minimum": 0, "maximum": 99 },
+            "意志":     { "type": "integer", "minimum": 0, "maximum": 99 },
+            "敏捷":     { "type": "integer", "minimum": 0, "maximum": 99 }
+          }
+        },
+        "inventory": {
+          "type": "array",
+          "description": "背包道具列表",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id":    { "type": "string" },
+              "name":  { "type": "string" },
+              "count": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "time_elapsed": {
+      "type": "integer",
+      "description": "已消耗时间点数，满10触发黑夜",
+      "default": 0,
+      "minimum": 0
+    },
+    "night_fallen": {
+      "type": "boolean",
+      "description": "黑夜是否已降临",
+      "default": false
+    },
+    "ritual_stage": {
+      "type": "integer",
+      "description": "仪式当前阶段（0=未开始，1/2/3=进行中，4=完成）",
+      "default": 0
+    },
+    "flags": {
+      "type": "object",
+      "description": "剧情开关，记录已发生的事件",
+      "properties": {
+        "talked_to_mrs_chen":           { "type": "boolean", "default": false },
+        "talked_to_mrs_chen_deep":      { "type": "boolean", "default": false },
+        "mrs_chen_closed_door":         { "type": "boolean", "default": false },
+        "talked_to_officer_riley":      { "type": "boolean", "default": false },
+        "deep_investigated_police":     { "type": "boolean", "default": false },
+        "deep_investigated_library":    { "type": "boolean", "default": false },
+        "visited_library":              { "type": "boolean", "default": false },
+        "searched_room207_desk":        { "type": "boolean", "default": false },
+        "searched_room207_wardrobe":    { "type": "boolean", "default": false },
+        "basement_unlocked":            { "type": "boolean", "default": false },
+        "cultist_encountered":          { "type": "boolean", "default": false },
+        "cultist_defeated":             { "type": "boolean", "default": false },
+        "altar_found":                  { "type": "boolean", "default": false },
+        "altar_symbols_checked":        { "type": "boolean", "default": false },
+        "altar_searched":               { "type": "boolean", "default": false },
+        "hidden_room_found":            { "type": "boolean", "default": false },
+        "hidden_room_read":             { "type": "boolean", "default": false },
+        "corbitt_appeared":             { "type": "boolean", "default": false }
+      }
+    },
+    "clues": {
+      "type": "array",
+      "description": "已发现的线索列表",
+      "items": { "type": "string" },
+      "possible_values": [
+        "corbitt_name",
+        "basement_noise",
+        "tenants_saw_eyes",
+        "candle_traces",
+        "corbitt_disappeared",
+        "corbitt_was_cultist",
+        "star_gate_cult",
+        "ritual_marks",
+        "banishment_ritual"
+      ]
+    },
+    "combat": {
+      "type": "object",
+      "description": "战斗状态（战斗中才有值）",
+      "properties": {
+        "in_combat":    { "type": "boolean", "default": false },
+        "enemy_id":     { "type": "string" },
+        "enemy_hp":     { "type": "integer" },
+        "enemy_hp_max": { "type": "integer" },
+        "round":        { "type": "integer", "default": 0 }
+      }
+    },
+    "visited_scenes": {
+      "type": "array",
+      "description": "已访问场景列表，用于避免重复触发事件",
+      "items": { "type": "string" }
+    }
+  }
+}

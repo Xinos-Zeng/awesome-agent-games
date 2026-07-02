@@ -1,30 +1,44 @@
-# tabletop-skills
+# awesome-agent-games
 
-**🌐 中文** | [English](README.en.md)
+**中文** | [English](README.en.md)
 
-> 一个桌游剧本集合，每个剧本都打包成可被 AI Agent 加载的 skill —— 让 Claude / Codex / Gemini 等 Agent 当你的 KP / GM 陪你跑团。
+> 一个面向 AI Agent 的游戏 skill 集合：可以是 CoC 跑团，也可以是 Galgame、互动小说，或者任何适合上班摸鱼的可玩内容。
 
-每个一级子目录就是一个完整的剧本，自带规则提示、剧情数据、判定脚本和存档目录，互相独立。
+每个游戏都是一个完整、可独立安装的 skill，自带规则提示、剧情数据、运行脚本和存档目录。分类目录只用于整理仓库，真正复制到 Agent skills 目录的是具体游戏目录。
 
 ---
 
-## 📚 已收录剧本
+## 已收录游戏
 
-| Skill | 系统 | 剧本 | 玩家 | 时长 | 简介 |
+### CoC 跑团
+
+| Skill | 系统 | 游戏 | 玩家 | 时长 | 简介 |
 |---|---|---|---|---|---|
-| [`brenner-apartment`](brenner-apartment/) | 克苏鲁的呼唤 | 布伦纳公寓 | 1 | ~30min | 1923 年波士顿，调查一栋让三名租客接连精神崩溃的公寓。 |
+| [`brenner-apartment`](coc/brenner-apartment/) | 克苏鲁的呼唤 | 布伦纳公寓 | 1 | ~30min | 1923 年波士顿，调查一栋让三名租客接连精神崩溃的公寓。 |
+
+开发规范见 [`coc/tutorial.md`](coc/tutorial.md)。
+
+### Galgame
+
+| Skill | 类型 | 游戏 | 玩家 | 时长 | 简介 |
+|---|---|---|---|---|---|
+| [`shiomi-academy-seven-days`](galgame/shiomi-academy-seven-days/) | 视觉小说 | 汐見学園の七日間 | 1 | 多周目 | 海边学园、废弃灯塔与七天时间循环中的恋爱冒险。 |
+
+开发规范见 [`galgame/tutorial.md`](galgame/tutorial.md)。
 
 ---
 
-## 🚀 怎么用
+## 怎么用
 
 ### 1. Clone 仓库
 
 ```bash
-git clone https://github.com/Xinos-Zeng/tabletop-skills.git
+git clone https://github.com/Xinos-Zeng/awesome-agent-games.git
 ```
 
-### 2. 把想玩的剧本放进 Agent 的 skills 目录
+也可以直接对 Agent 说：请从 `https://github.com/Xinos-Zeng/awesome-agent-games` 下载我想玩的游戏 skill，并安装到你的用户级 skills 目录。
+
+### 2. 把想玩的游戏放进 Agent 的 skills 目录
 
 不同 Agent 平台的 skill 目录位置不一样，按你用的那个工具放：
 
@@ -39,42 +53,61 @@ git clone https://github.com/Xinos-Zeng/tabletop-skills.git
 
 ```bash
 mkdir -p ~/.claude/skills
-cp -r tabletop-skills/brenner-apartment ~/.claude/skills/
+cp -r awesome-agent-games/coc/brenner-apartment ~/.claude/skills/
+```
+
+例如想玩《汐見学園の七日間》：
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r awesome-agent-games/galgame/shiomi-academy-seven-days ~/.claude/skills/
 ```
 
 ### 3. 在 Agent 里召唤它
 
-重启 Agent 会话，对它说剧本名就行。比如：
+重启 Agent 会话，对它说游戏名就行。比如：
 
 > "我想玩布伦纳公寓"
 
-> 🤖 **如果你是直接把这个 README 链接发给 Agent 的**：上面的命令你照着执行即可。默认装到用户级目录（除非用户指定项目级），装完告诉用户重启会话并说出剧本名触发。
+> "我想玩汐見学園の七日間"
+
+> 如果你是直接把这个 README 链接发给 Agent 的：上面的命令你照着执行即可。默认装到用户级目录，除非用户指定项目级。装完告诉用户重启会话并说出游戏名触发。
 
 ---
 
-## 🧩 仓库结构
+## 仓库结构
 
 ```
-tabletop-skills/
+awesome-agent-games/
 ├── README.md
-└── <scenario-name>/             # 一个剧本 = 一个 skill
-    ├── SKILL.md                 # 入口：name + description + 规则
-    ├── data/                    # 剧情、场景、NPC、道具
-    ├── scripts/                 # 骰子、检定、战斗
-    ├── schemas/                 # 存档 JSON schema
-    └── saves/                   # 玩家存档（运行时生成）
+├── coc/
+│   ├── tutorial.md
+│   └── <game-slug>/
+│       ├── SKILL.md
+│       ├── data/
+│       ├── scripts/
+│       ├── schemas/
+│       └── saves/
+└── galgame/
+    ├── tutorial.md
+    └── <game-slug>/
+        ├── SKILL.md
+        ├── data/
+        ├── scripts/
+        └── saves/
 ```
 
 ---
 
-## ✍️ 想加新剧本？
+## 贡献自己的游戏
 
-为了让多个剧本共存时不打架，新增剧本请遵守三条约定：
+欢迎 PR 新游戏。为了让多个 skill 共存时不互相抢触发词，请遵守这些约定：
 
-1. **目录名 = skill 名 = 剧本名（kebab-case）**
-   例：`silver-twilight/`、`masks-of-nyarlathotep/`。
-2. **`SKILL.md` 的 `description` 只认剧本本身的名字**
-   别用「开始游戏」「跑团」「玩克苏鲁」这种泛词，会和其他剧本互抢。
-3. **保持自包含**：所有数据、脚本、schema 都放在自己目录下，不跨剧本依赖。
+1. 选择合适分类目录，例如 `coc/` 或 `galgame/`。
+2. 新建具体游戏目录，目录名使用 kebab-case，并和 `SKILL.md` frontmatter 的 `name` 保持一致。
+3. `description` 只触发具体游戏名，不使用“开始游戏”“玩 galgame”“跑团”这类泛词。
+4. 保持自包含：所有数据、脚本、schema 和存档都放在自己的游戏目录下。
+5. 按分类 tutorial 检查结构和规范。
+6. 在 README 的对应分类表格里补一行。
+7. 提交 PR，说明游戏类型、触发方式、是否需要外部依赖，以及你测试过的启动流程。
 
-加完别忘了在上面的剧本表格里加一行。
