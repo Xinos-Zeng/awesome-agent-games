@@ -12,17 +12,18 @@ Each game is a complete, self-contained skill with its own rules prompt, story d
 
 ### Call of Cthulhu
 
-| Skill | System | Game | Players | Length | Pitch |
-|---|---|---|---|---|---|
-| [`brenner-apartment`](coc/brenner-apartment/) | Call of Cthulhu | Brenner Apartment | 1 | ~30min | Boston, 1923. Investigate an apartment whose last three tenants all went mad. |
+| Skill | System | Game | Players | Length | Highlights | Pitch |
+|---|---|---|---|---|---|---|
+| [`brenner-apartment`](coc/brenner-apartment/) | Call of Cthulhu | Brenner Apartment | 1 | ~30min | Sanity checks, nightfall countdown, one-chance rules, combat and ritual endings | Boston, 1923. Investigate an apartment whose last three tenants all went mad. |
 
 Development guide: [`coc/tutorial.md`](coc/tutorial.md).
 
 ### Galgame
 
-| Skill | Type | Game | Players | Length | Pitch |
-|---|---|---|---|---|---|
-| [`shiomi-academy-seven-days`](galgame/shiomi-academy-seven-days/) | Visual novel | Shiomi Academy Seven Days | 1 | Multi-route | A seaside academy, an abandoned lighthouse, and romance inside a seven-day time loop. |
+| Skill | Type | Game | Players | Length | Highlights | Pitch |
+|---|---|---|---|---|---|---|
+| [`shiomi-academy-seven-days`](galgame/shiomi-academy-seven-days/) | Visual novel | Shiomi Academy Seven Days | 1 | Multi-route | Three heroines, character routes, affection and flags, multiple endings | A seaside academy, an abandoned lighthouse, and romance inside a seven-day time loop. |
+| [`yunmeng-changan`](galgame/yunmeng-changan/) | Otome visual novel | Yunmeng Chang'an | 1 | Multi-route | Three love interests, otome routes, affection and flags, multiple endings | A modern Chang'an artifact restorer gains spirit sight and searches for the lost Yunmeng Scroll where the human and spirit worlds overlap. |
 
 Development guide: [`galgame/tutorial.md`](galgame/tutorial.md).
 
@@ -68,12 +69,23 @@ Choose 2 items to carry:
 ```text
 Player: Let's play Shiomi Academy Seven Days.
 
-Narrator: A sea breeze drifts up from the end of the slope, carrying salt and the smell of summer. Far away, an old lighthouse stands silently by the cliff, its clock stopped at a time you cannot quite read.
+Narrator:
+Shiomi Academy Seven Days
+A seaside academy, a silent lighthouse, and seven days that never seem to end.
 
-Today is your first day transferring into Shiomi Academy.
+On top of a cliff stands a private high school named Shiomi Academy.
 
-What is the protagonist's name?
-(Default: Hasegawa Ren)
+Old Showa-era school buildings, a pale abandoned lighthouse in the distance, and an air so quiet it feels carefully preserved.
+
+They say that every seventh midnight, everything resets to the morning of the first day.
+
+But you remember none of it.
+
+All you know is this: today is your first day transferring in.
+
+Welcome, player. Welcome to the story of Shiomi Academy.
+
+What is the protagonist's name? Type a name directly, or leave it blank to use the default: Hasegawa Ren.
 ```
 
 ---

@@ -12,17 +12,18 @@
 
 ### CoC 跑团
 
-| Skill | 系统 | 游戏 | 玩家 | 时长 | 简介 |
-|---|---|---|---|---|---|
-| [`brenner-apartment`](coc/brenner-apartment/) | 克苏鲁的呼唤 | 布伦纳公寓 | 1 | ~30min | 1923 年波士顿，调查一栋让三名租客接连精神崩溃的公寓。 |
+| Skill | 系统 | 游戏 | 玩家 | 时长 | 亮点 | 简介 |
+|---|---|---|---|---|---|---|
+| [`brenner-apartment`](coc/brenner-apartment/) | 克苏鲁的呼唤 | 布伦纳公寓 | 1 | ~30min | 理智检定、黑夜倒计时、一次机会规则、战斗与仪式结局 | 1923 年波士顿，调查一栋让三名租客接连精神崩溃的公寓。 |
 
 开发规范见 [`coc/tutorial.md`](coc/tutorial.md)。
 
 ### Galgame
 
-| Skill | 类型 | 游戏 | 玩家 | 时长 | 简介 |
-|---|---|---|---|---|---|
-| [`shiomi-academy-seven-days`](galgame/shiomi-academy-seven-days/) | 视觉小说 | 汐見学園の七日間 | 1 | 多周目 | 海边学园、废弃灯塔与七天时间循环中的恋爱冒险。 |
+| Skill | 类型 | 游戏 | 玩家 | 时长 | 亮点 | 简介 |
+|---|---|---|---|---|---|---|
+| [`shiomi-academy-seven-days`](galgame/shiomi-academy-seven-days/) | 视觉小说 | 汐見学園の七日間 | 1 | 多周目 | 男性向、三位女主、多角色路线、好感度与 flag、多结局 | 海边学园、废弃灯塔与七天时间循环中的恋爱冒险。 |
+| [`yunmeng-changan`](galgame/yunmeng-changan/) | 乙女视觉小说 | 云梦长安 | 1 | 多周目 | 乙女向、三位男主、好感度与 flag、多结局 | 现代长安的文物修复师获得通灵之眼，在人间与灵界交叠处寻找失落的云梦图。 |
 
 开发规范见 [`galgame/tutorial.md`](galgame/tutorial.md)。
 
