@@ -46,7 +46,7 @@ CHOICES = {
     },
     "c1_su_ask_her": {
         "affection": {"sumobai": 1},
-        "flags": {"asked_about_her": True},
+        "flags": {"asked_why_su_approached": True},
     },
     "c1_su_stay_alert": {
         "affection": {"sumobai": 2},
